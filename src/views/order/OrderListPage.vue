@@ -13,7 +13,8 @@ const orderModule = "orderModule"
 export default {
     data () {
         return {
-            accountId: localStorage.getItem('loginUserInfo'),
+            userToken: localStorage.getItem('userToken')
+        //    accountId: localStorage.getItem('loginUserInfo'),        
         // 테스트 용
         //     orders: [ 
         //         {orderId: 1, product:{productId: 1, productName: "바닐라", productPrice: 2000}, orderDate: "11.11"},
@@ -32,10 +33,12 @@ export default {
         ...mapState(orderModule, ['orders'])
     },
     methods: {
-        ...mapActions(orderModule, ['requestOrderListToSpring'])
+        // ...mapActions(orderModule, ['requestOrderListToSpring'])
+        ...mapActions(orderModule, ['requestOrderListToSpringRefactor'])
     },
     mounted() {
-        this.requestOrderListToSpring(this.accountId)
+        // this.requestOrderListToSpring(this.accountId)
+        this.requestOrderListToSpringRefactor(this.userToken)
     }
 }
 </script>

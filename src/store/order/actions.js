@@ -20,6 +20,13 @@ export default {
         .then((res) => {
             commit(REQUEST_ORDER_LIST_TO_SPRING, res.data)
         })
+    },
+    requestOrderListToSpringRefactor({commit}, payload) {
+        const { userToken } = payload
+        return axiosInst.get('/order/list', {userToken})
+        .then((res) => {
+            commit(REQUEST_ORDER_LIST_TO_SPRING, res.data)
+        })
     }
 
 }
